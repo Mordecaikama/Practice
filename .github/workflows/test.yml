@@ -1,5 +1,5 @@
 name: practice workflow
-on: push
+on: [push,workflow_dispatch]
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -9,6 +9,7 @@ jobs:
       - name: run test
         run: echo "test"
   build:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: checkout
